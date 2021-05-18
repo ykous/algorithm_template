@@ -1,3 +1,4 @@
 # Algorithm Template
 
-algorithm template for practice,implementation of different language in different branch
+算法模板总结，大多数代码以静态方法代码呈现，包括某些数据结构，
+这是因为模板多用于竞赛中，静态代码更方便于书写和改写
