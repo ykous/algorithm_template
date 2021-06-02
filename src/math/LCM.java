@@ -4,7 +4,7 @@ package math;
 public class LCM {
 
     static int gcd(int i, int j) {
-        return j > 0 ? gcd(j, i % j) : i;
+        return j == 0 ? i : gcd(j, i % j);
     }
 
     static int lcm(int i, int j) {

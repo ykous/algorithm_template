@@ -1,14 +1,14 @@
-package graph;
+package dataStructure;
 
 import java.util.Arrays;
 
 // 并查集，既可以是某一种数据结构，也可以看作是一种维护连通性的算法
 public class UnionSet {
-    static int[] p;
+    static final int N = 10010;
+    static int[] p = new int[N];
 
-    static void init(int n) {
-        p = new int[n];
-        Arrays.fill(p, -1);
+    static {
+        Arrays.fill(p,-1);
     }
 
     static int find(int x) {

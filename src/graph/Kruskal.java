@@ -7,10 +7,10 @@ import java.util.Scanner;
 // 排序边集，遍历，不断地维护联通分支直到全联通
 public class Kruskal {
     // 先准备好并查集
-    static int[] p;
+    static final int N = 10010;
+    static int[] p = new int[N];
 
-    static void init(int n) {
-        p = new int[n];
+    static {
         Arrays.fill(p, -1);
     }
 
@@ -33,8 +33,7 @@ public class Kruskal {
         }
     }
 
-    static void kruskal(int[][] edges, int n) {
-        init(n);
+    static void kruskal(int[][] edges) {
         Arrays.sort(edges, Comparator.comparingInt(t -> t[2]));
         for (int[] edge : edges) {
             int from = edge[0];
@@ -47,13 +46,13 @@ public class Kruskal {
         }
     }
 
+    // kruskal 如何判断图不连通？ 在 exec 中记录加入的边的数量，如果边数少于 n - 1 则无生成树
     private static void exec(int from, int to, int weight) {
         System.out.println(from + " " + to + " " + weight);
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
         int m = scanner.nextInt();
         int[][] edges = new int[m][3];
         for (int i = 0; i < m; i++) {
@@ -61,6 +60,6 @@ public class Kruskal {
             edges[i][1] = scanner.nextInt() - 1;
             edges[i][2] = scanner.nextInt();
         }
-        kruskal(edges, n);
+        kruskal(edges);
     }
 }
